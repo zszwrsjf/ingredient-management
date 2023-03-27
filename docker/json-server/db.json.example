@@ -1,0 +1,245 @@
+{
+    "myingredients": [
+        {
+            "id": 1,
+            "name": "cabbage",
+            "quantity": 1,
+            "expiration": "1 week",
+            "happiness": 90
+        }
+    ],
+
+
+  "ingredients": [
+    {
+      "id": 1,
+      "name": "tomato",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1571680322279-a226e6a4cc2a",
+      "shelf_life_days": 1
+    },
+    {
+      "id": 2,
+      "name": "egg",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1587334108051-1639d15a30e1",
+      "shelf_life_days": 15
+    },
+    {
+      "id": 3,
+      "name": "pork meat",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1587316925366-326c1ca7b29e",
+      "shelf_life_days": 2
+    },
+    {
+      "id": 4,
+      "name": "beaf meat",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1595356161904-6708c97be89c",
+      "shelf_life_days": 10
+    },
+    {
+      "id": 5,
+      "name": "lettuce",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1556781366-336f8353ba7c",
+      "shelf_life_days": 5
+    },
+    {
+      "id": 6,
+      "name": "bread",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1605037322848-afc6159c8f45",
+      "shelf_life_days": 28
+    },
+    {
+      "id": 7,
+      "name": "banana",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e",
+      "shelf_life_days": 7
+    },
+    {
+      "id": 8,
+      "name": "orange",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1587735243615-c03f25aaff15",
+      "shelf_life_days": 2
+    },
+    {
+      "id": 9,
+      "name": "avocado",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1584228697512-95990e19c52c",
+      "shelf_life_days": 45
+    },
+    {
+      "id": 10,
+      "name": "red pepper",
+      "info_url": "",
+      "image_url": "https://images.unsplash.com/photo-1531697323727-3b7b226ca87e",
+      "shelf_life_days": 6
+    }
+  ],
+	"recipes": [
+		{
+			"id": 1,
+			"title": "tuna potato",
+			"recipe_url": "https://erecipe.woman.excite.co.jp/detail/09335f3eb59b1c7b94c97fb2ba1c0f22.html",
+			"image_url": "https://erecipe.woman.excite.co.jp/detail/process/09335f3eb59b1c7b94c97fb2ba1c0f22",
+			"cook_minute": 30.0,
+			"num_servings": 4,
+			"language": "jp",
+			"ingredients": [
+				2
+			],
+			"users_who_cooked": [
+				1
+			],
+			"users_who_liked": []
+		},
+		{
+			"id": 2,
+			"title": "curry",
+			"recipe_url": "",
+			"image_url": "",
+			"cook_minute": 40.0,
+			"num_servings": null,
+			"language": "en",
+			"ingredients": [],
+			"users_who_cooked": [],
+			"users_who_liked": [
+				2
+			]
+		}
+	],
+	"tags": [
+		{
+			"id": 1,
+			"name": "japanese food",
+			"description": "japanese food",
+			"info_url": null,
+			"image_url": "https://www.wikiwand.com/en/List_of_Japanese_dishes#Media/File:Sushi_platter.jpg",
+			"language": "en",
+			"recipes": [
+				1
+			]
+		},
+		{
+			"id": 2,
+			"name": "indian food",
+			"description": "indian food",
+			"info_url": "",
+			"image_url": "",
+			"language": "en",
+			"recipes": []
+		}
+	],
+	"recipe-ingredients": [
+		{
+			"id": 1,
+			"ingredient_quantity": "1",
+			"recipe": 1,
+			"ingredient": 2
+		},
+		{
+			"id": 2,
+			"ingredient_quantity": "40gram",
+			"recipe": 2,
+			"ingredient": 3
+		},
+		{
+			"id": 3,
+			"ingredient_quantity": "10gram",
+			"recipe": 2,
+			"ingredient": 5
+		}
+	],
+	"recipe-tags": [
+		{
+			"id": 1,
+			"recipe": 1,
+			"tag": 1
+		},
+		{
+			"id": 2,
+			"recipe": 2,
+			"tag": 2
+		}
+	],
+	"user-ingredients": [
+		{
+			"id": 1,
+			"consumed": false,
+			"created_date": "2022-11-12T20:33:30.439185+09:00",
+			"purchase_date": null,
+			"user": 2,
+			"ingredient": 2
+		},
+		{
+			"id": 2,
+			"consumed": false,
+			"created_date": "2022-11-12T20:40:12.034654+09:00",
+			"purchase_date": null,
+			"user": 2,
+			"ingredient": 3
+		},
+		{
+			"id": 3,
+			"consumed": false,
+			"created_date": "2022-11-12T20:40:20.389613+09:00",
+			"purchase_date": null,
+			"user": 1,
+			"ingredient": 5
+		}
+	],
+	"user-recipe-favorates": [
+		{
+			"id": 1,
+			"added_date": "2022-11-12T20:33:41.506401+09:00",
+			"user": 2,
+			"recipe": 2
+		}
+	],
+	"user-recipe-histories": [
+		{
+			"id": 1,
+			"cooked_date": "2022-11-12T20:31:32.048783+09:00",
+			"user": 1,
+			"recipe": 1
+		}
+	],
+	"users": [
+		{
+			"id": 1,
+			"password": "password",
+			"last_login": null,
+			"is_superuser": false,
+			"username": "kokhayas",
+			"first_name": "",
+			"last_name": "",
+			"email": "",
+			"is_staff": false,
+			"is_active": false,
+			"date_joined": "2022-11-12T20:31:13.931474+09:00",
+			"groups": [],
+			"user_permissions": []
+		},
+		{
+			"id": 2,
+			"password": "password",
+			"last_login": null,
+			"is_superuser": false,
+			"username": "hoge",
+			"first_name": "",
+			"last_name": "",
+			"email": "",
+			"is_staff": false,
+			"is_active": false,
+			"date_joined": "2022-11-12T20:31:23.505331+09:00",
+			"groups": [],
+			"user_permissions": []
+		}
+	]
+}

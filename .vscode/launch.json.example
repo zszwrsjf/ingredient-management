@@ -1,0 +1,39 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Django",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/django/manage.py",
+      "args": ["runserver", "9000"],
+      "django": true,
+      "justMyCode": true,
+    },
+    {
+      "name": "Scrapy",
+      "type": "python",
+      "request": "launch",
+      "module": "scrapy",
+      "cwd": "${workspaceFolder}/django/population",
+      "args": [
+        "crawl",
+        "api_spider",
+        "-a", "letter=a",
+        //"-a", "edamam=tacos,omlet",
+        "-L=WARNING",
+      ],
+      "env": {
+        "SCRAPY_USE_AUTOTHROTTLE": "True",
+        "SCRAPY_DOWNLOAD_DELAY": "2",
+        "SCRAPY_CONCURRENT_REQ": "2",
+        "SCRAPY_DEPTH_LIMIT": "0",
+        "SCRAPY_EDAMAM_RECURSION": "True",
+      },
+      "justMyCode": true
+    },
+  ]
+}

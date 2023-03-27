@@ -1,0 +1,80 @@
+version: "3.8"
+services:
+  django:
+    build:
+      context: ../django
+      dockerfile: ../docker/django/Dockerfile
+    depends_on:
+      - postgresdb
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=postgresdb
+      - POSTGRES_PORT=5432
+      - DJANGO_SECRET=django-insecure-o-o$$7bmhqrev8qlko^z^c#+m#8bmnnx_k3qz0vt#+oqri3(&%t
+      - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS:-localhost}
+      - DJANGO_DEBUG_MODE=True
+      - FRONTEND_URL=${FRONTEND_URL:-^http://localhost:3000$}
+      - SCRAPY_DOWNLOAD_DELAY=${SCRAPY_DOWNLOAD_DELAY:-2}
+      - SCRAPY_CONCURRENT_REQ=${SCRAPY_CONCURRENT_REQ:-2}
+      - SCRAPY_DEPTH_LIMIT=${SCRAPY_DEPTH_LIMIT:-0}
+      - SCRAPY_EDAMAM_APPID=${SCRAPY_EDAMAM_APPID}
+      - SCRAPY_EDAMAM_APPKEY=${SCRAPY_EDAMAM_APPKEY}
+      - SCRAPY_USE_AUTOTHROTTLE=${SCRAPY_USE_AUTOTHROTTLE:-True}
+      - SCRAPY_TARGET_CONCURRENCY=${SCRAPY_TARGET_CONCURRENCY:-1.0}
+      - SCRAPY_EDAMAM_RECURSION=${SCRAPY_EDAMAM_RECURSION:-True}
+      - SCRAPY_EDAMAM_DELAY=${SCRAPY_EDAMAM_DELAY:-6.0}
+      - PYTHONPATH=/app/django
+      - TZ=Asia/Tokyo
+    image: django
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../django:/app/django
+      - scrapy_cache_volume:/app/django/population/.scrapy
+
+  postgresdb:
+    build:
+      context: ./postgresql
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    image: postgresdb
+    ports:
+      - "5432:5432"
+    user: postgres
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+
+  react:
+    build:
+      context: ../react
+      dockerfile: ../docker/react/Dockerfile
+    command: [ "yarn", "start" ]
+    environment:
+      - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:8000/api}
+    image: react
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../react:/app/react
+      - node_modules_volume:/app/react/node_modules
+
+  json-sever:
+    build:
+      context: ./json-server
+      dockerfile: Dockerfile
+    command: [ "json-server", "--host", "0.0.0.0", "--watch", "db.json" ]
+    image: json-server
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./json-server:/app/json-server
+
+volumes:
+  postgres_volume:
+  scrapy_cache_volume:
+  node_modules_volume:
